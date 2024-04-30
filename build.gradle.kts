@@ -167,7 +167,7 @@ fastRemapper {
 modLoader {
     modPackage.set("dev.luna5ama.loader")
     defaultPlatform.set(ModPlatform.FORGE)
-    forgeModClass.set("dev.luna5ama.trollhack.TrollHackMod")
+    forgeModClass.set("catx.feitu.darknya.TrollHackMod")
 }
 
 tasks {
@@ -240,7 +240,7 @@ val fatjar = tasks.register<Jar>("fatjar") {
         attributes(
             "Manifest-Version" to 1.0,
             "TweakClass" to "org.spongepowered.asm.launch.MixinTweaker",
-            "FMLCorePlugin" to "dev.luna5ama.trollhack.TrollHackCoreMod",
+            "FMLCorePlugin" to "catx.feitu.darknya.TrollHackCoreMod",
             "FMLCorePluginContainsFMLMod" to true,
             "ForceLoadAsMod" to true
         )
@@ -320,7 +320,7 @@ tasks {
                 "-Dforge.logging.console.level=debug",
                 "-Dforge.logging.markers=SCAN,REGISTRIES,REGISTRYDUMP",
                 "-Dmixin.env.disableRefMap=true",
-                "-Dfml.coreMods.load=dev.luna5ama.trollhack.TrollHackDevFixCoreMod"
+                "-Dfml.coreMods.load=catx.feitu.darknya.TrollHackDevFixCoreMod"
             ).joinToString(" ")
 
             val dir = File(rootDir, ".idea/runConfigurations")

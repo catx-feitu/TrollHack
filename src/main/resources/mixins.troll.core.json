@@ -2,7 +2,7 @@
     "required": true,
     "minVersion": "0.7",
     "compatibilityLevel": "JAVA_8",
-    "package": "dev.luna5ama.trollhack.mixins.core",
+    "package": "catx.feitu.darknya.mixins.core",
     "refmap": "mixins.troll.refmap.json",
     "client": [
         "MixinContainer",
