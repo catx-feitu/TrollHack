@@ -55,16 +55,3 @@ jobs:
                 with:
                     name: nightly-build
                     path: TrollHack-${{ env.modVer }}.jar
-
-            -   name: Nightly build Discord webhook
-                env:
-                    runID: ${{ github.run_id }}
-                    webhookUrl: ${{ secrets.NIGHTLY_DISCORD_WEBHOOK }}
-                    modVer: ${{ env.modVer }}
-                run: |
-                    commitLongHash=$(git rev-parse HEAD)
-                    nightlyLink="https://nightly.link/$GITHUB_REPOSITORY/actions/runs/$runID/nightly-build.zip"
-                    commitMessage=$(git log --pretty=format:"[%h](https://github.com/$GITHUB_REPOSITORY/commit/%H) %s" -1 --reverse)
-                    json='{"embeds":[{"title":"'$modVer'","url":"https://github.com/'$GITHUB_REPOSITORY'/actions/runs/'$runID'","color":16100025,"description":"**Commit:**\n'$commitMessage'\n\n**Download:**\n[TrollHack-'$modVer'.zip]('$nightlyLink')"}]}'
-                    curl "$webhookUrl" -H "Content-Type:application/json" -X POST -d "$json"
-                    curl "$webhookUrl" -H "Content-Type:multipart/form-data" -v -F "files[0]=@TrollHack-$modVer.jar"
