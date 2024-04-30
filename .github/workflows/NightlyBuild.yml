@@ -3,7 +3,7 @@ name: NightlyBuild
 on:
     push:
         branches:
-            - dev
+            - master
     workflow_dispatch:
 
 jobs:
@@ -28,14 +28,6 @@ jobs:
                     key: ${{ runner.os }}-extra-${{ hashFiles('~/.gradle/caches/fast-remapper', '~/.gradle/caches/forge_gradle') }}
                     restore-keys: |
                         ${{ runner.os }}-extra-
-
-            -   name: Get version
-                run: |
-                    devVer=$(grep modVersion gradle.properties | grep -o '.\..\..')
-                    commitHash=$(git rev-parse --short HEAD)
-                    modVer=$devVer-nightly-$commitHash
-                    echo modVer=$modVer >> $GITHUB_ENV
-
             -   name: Gradle assemble
                 uses: burrunan/gradle-cache-action@v1
                 env:
