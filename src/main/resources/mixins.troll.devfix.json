@@ -2,12 +2,12 @@
     "required": false,
     "minVersion": "0.7",
     "compatibilityLevel": "JAVA_8",
-    "package": "catx.feitu.darknya.mixins.devfix",
+    "package": "dev.luna5ama.trollhack.mixins.devfix",
     "refmap": "mixins.troll.refmap.json",
     "client": [
-      "MixinASMModParser",
-      "MixinJarDiscoverer",
-      "MixinMinecraft",
-      "MixinNetworkRegistry"
+        "MixinASMModParser",
+        "MixinJarDiscoverer",
+        "MixinMinecraft",
+        "MixinNetworkRegistry"
     ]
 }
